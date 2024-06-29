@@ -1,6 +1,5 @@
 from torch import nn
-# from gpt3.model import Transformer, Decoder, AutoregressiveWrapper
-from zeta import Transformer, Decoder, AutoregressiveWrapper
+from zeta.structs import Transformer, Decoder, AutoRegressiveWrapper
 
 
 class GPT3(nn.Module):
@@ -32,7 +31,7 @@ class GPT3(nn.Module):
             )
         ).cuda()
 
-        self.model = AutoregressiveWrapper(self.model)
+        self.model = AutoRegressiveWrapper(self.model)
 
     def forward(self, text, **kwargs):
         return self.model(text)
